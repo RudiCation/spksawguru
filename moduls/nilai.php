@@ -48,11 +48,15 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 ?>
             <tr>
                 <td><?php echo $no++ ?></td>
-                <td><?php echo $row['ket_nilai'] ?></td>
-                <td><?php echo $row['jum_nilai'] ?></td>
+                <td><?php echo $row['nuptk'] ?></td>
+                <td><?php echo $row['nama'] ?></td>
+                <td><?php echo $row['absensi'] ?></td>
+                <td><?php echo $row['kompetensi'] ?></td>
+                <td><?php echo $row['pendidikan'] ?></td>
+                <td><?php echo $row['kinerja'] ?></td>
                 <td class="text-center">
-					<a href="nilai-ubah.php?id=<?php echo $row['id_nilai'] ?>" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-					<a href="nilai-hapus.php?id=<?php echo $row['id_nilai'] ?>" onclick="return confirm('Yakin ingin menghapus data')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+					<a href="?page=addnilai&get=edit&id=<?php echo $row['nuptk'] ?>" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+					<a href="nilai-hapus.php?id=<?php echo $row['nuptk'] ?>" onclick="return confirm('Yakin ingin menghapus data')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 			    </td>
             </tr>
 <?php
