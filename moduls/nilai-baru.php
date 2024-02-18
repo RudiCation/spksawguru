@@ -2,19 +2,19 @@
 include_once 'lib/nilai.inc.php';
 $eks = new Nilai($db);
 ?>
-
 <?php
 if($_POST){
-
-
-	$eks->kt = $_POST['kt'];
-	$eks->jm = $_POST['jm'];
-
+	$eks->nuptk = $_POST['nuptk'];
+	$eks->nama = $_POST['nama'];
+	$eks->absen = $_POST['absen'];
+	$eks->komptensi = $_POST['komptensi'];
+	$eks->pendidikan = $_POST['pendidikan'];
+	$eks->kinerja = $_POST['kinerja'];
 	if($eks->insert()){
 ?>
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Berhasil Tambah Data!</strong> Tambah lagi atau <a href="nilai.php">lihat semua data</a>.
+  <strong>Berhasil Tambah Data!</strong> Tambah lagi atau <a style="color: #fff;" href="?page=nilai">lihat semua data</a>.
 </div>
 <?php
 	}
@@ -40,17 +40,9 @@ if($_POST){
 			<form method="post">
                 <div class="form-group">
 				    <label for="kt">NUPTK</label>
-				    <select name="nuptk" class= "form-control" id="nuptk" onchange="isi_otomatis(this.value)">
-					<option value="" selected disabled hidden>Pilih NUPTK</option>
-						<?php
-							$sttmguru = $pro2->readAll();
-							while ($rgtm = $sttmguru->fetch(PDO::FETCH_ASSOC)) {
+					<small>nuptk diketik jangan di copy paste</small>
+					<input type="number" class="form-control" name="nuptk" id="nuptk" onkeyup="isi_otomatis(this.value)" >
 
-							echo "<option value='".$rgtm["nuptk"]."'>".$rgtm["nuptk"]." </option>";
-							}
-						?>
-
-					</select>
 				  </div>
 				  <div class="form-group">
 				    <label for="kt">Nama Guru</label>
@@ -58,19 +50,19 @@ if($_POST){
 				  </div>
                   <div class="form-group">
 				    <label for="kt">Absensi</label>
-				    <input type="text" class="form-control" id="tmptlhr" name="tmptlhr" required>
+				    <input type="text" class="form-control" id="absen" name="absen" required>
 				  </div>
                   <div class="form-group">
 				    <label for="kt">Kompetensi</label>
-				    <input type="text" class="form-control" id="tgllahir" name="tgllahir" required>
+				    <input type="text" class="form-control" id="komptensi" name="komptensi" required>
 				  </div>
                   <div class="form-group">
 				    <label for="kt">Pendidikan</label>
-				    <input type="text" class="form-control" id="tmtkerja" name="tmtkerja" required>
+				    <input type="text" class="form-control" id="pendidikan" name="pendidikan" required>
 				  </div>
                   <div class="form-group">
 				    <label for="kt">Kinerja</label>
-				    <input type="text" class="form-control" id="title" name="title" required>
+				    <input type="text" class="form-control" id="kinerja" name="kinerja" required>
 				  </div>
 				  <button type="submit" class="btn btn-primary">Simpan</button>
 				  <button type="button" onclick="location.href='?page=nilai'" class="btn btn-success">Kembali</button>
