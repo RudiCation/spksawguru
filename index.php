@@ -30,6 +30,9 @@ if(isset($page)){
     if($page=='addnilai'){
         include"moduls/nilai-baru.php";
     }
+    if($page=='bobot'){
+        include"moduls/bobotnilai.php";
+    }
 
 }else{
     include"moduls/default.php";

@@ -2,12 +2,12 @@
 <!-- Content Header (Page header) -->
 <?php
 include_once 'lib/dataguru.inc.php';
-    $get = $_GET['get'];
-     if (empty($get)) {
+$get = $_GET['get'];
+$eks = new Alternatif($db);
+     if (empty($get)){
 ?>
 <?php
 if($_POST){
-	$eks = new Alternatif($db);
     $eks->nuptk = $_POST['nuptk'];
 	$eks->kt = $_POST['kt'];
     $eks->tmptlhr = $_POST['tmptlhr'];
@@ -92,7 +92,6 @@ if($_POST){
 <?php
      }else if($get == 'edit'){
         $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
-        $eks = new Alternatif($db);
         $eks->nuptk = $id;
         $eks->readOne();
         ?>
@@ -171,7 +170,17 @@ if($_POST){
         <?php
             }
         }
-             }
+    }elseif($get=='hapus'){
+		$id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
+		$eks->nuptk = $id;
+		if($eks->delete()){
+			echo "<script>location.href='?page=dataguru';</script>";
+		} else{
+			echo "<script>alert('Gagal Hapus Data');location.href='?page=dataguru';</script>";
+
+		}
+
+	}
 ?>
 
 
