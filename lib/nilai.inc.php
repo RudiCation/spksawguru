@@ -69,16 +69,22 @@ class Nilai{
 		$query = "UPDATE
 					" . $this->table_name . "
 				SET
-					ket_nilai = :kt,
-					jum_nilai = :jm
+					nama = :nama,
+					absensi = :absen,
+					kompetensi = :kompeten,
+					pendidikan = :pendidikan,
+					kinerja = :kinerja
 				WHERE
-					id_nilai = :id";
+					nuptk = :id";
 
 		$stmt = $this->conn->prepare($query);
 
-		$stmt->bindParam(':kt', $this->kt);
-		$stmt->bindParam(':jm', $this->jm);
-		$stmt->bindParam(':id', $this->id);
+		$stmt->bindParam(':nama', $this->nama);
+		$stmt->bindParam(':absen', $this->absen);
+		$stmt->bindParam(':kompeten', $this->komptensi);
+		$stmt->bindParam(':pendidikan', $this->pendidikan);
+		$stmt->bindParam(':kinerja', $this->kinerja);
+		$stmt->bindParam(':id', $this->nuptk);
 
 		// execute the query
 		if($stmt->execute()){

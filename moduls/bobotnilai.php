@@ -1,12 +1,12 @@
 <?php
-include_once 'lib/nilai.inc.php';
-$pro = new Nilai($db);
+include_once 'lib/bobotnilai.inc.php';
+$pro = new Bobot($db);
 $stmt = $pro->readAll();
 ?>
 <div class="well">
 	<div class="row">
 		<div class="col-md-6 text-left">
-			<h4>Data Nilai Preferensi</h4>
+			<h4>Data Bobot Nilai</h4>
 		</div>
 		<div class="col-md-6 text-right">
 			<button onclick="location.href='?page=addnilai'" class="btn btn-primary">Tambah Data</button>
@@ -18,12 +18,10 @@ $stmt = $pro->readAll();
         <thead>
             <tr>
                 <th width="30px">No</th>
-                <th>NUPTK</th>
-                <th>Nama</th>
-                <th>Absensi</th>
-                <th>Kompetensi</th>
-                <th>Pendidikan</th>
-                <th>Kinerja</th>
+                <th>Bobot Absensi</th>
+                <th>Bobot Kompetensi</th>
+                <th>Bobot Pendidikan</th>
+                <th>Bobot Kinerja</th>
                 <th width="100px">Aksi</th>
             </tr>
         </thead>
@@ -31,12 +29,10 @@ $stmt = $pro->readAll();
         <tfoot>
             <tr>
             <th width="30px">No</th>
-                <th>NUPTK</th>
-                <th>Nama</th>
-                <th>Absensi</th>
-                <th>Kompetensi</th>
-                <th>Pendidikan</th>
-                <th>Kinerja</th>
+                <th>Bobot Absensi</th>
+                <th>Bobot Kompetensi</th>
+                <th>Bobot Pendidikan</th>
+                <th>Bobot Kinerja</th>
                 <th width="100px">Aksi</th>
             </tr>
         </tfoot>

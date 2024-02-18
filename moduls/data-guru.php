@@ -59,7 +59,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                 <td><?php echo $row['mapel'] ?></td>
                 <td class="text-center">
 					<a href="?page=add-dataguru&get=edit&id=<?php echo $row['nuptk'] ?>" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-					<a href="alternatif-hapus.php?id=<?php echo $row['nuptk'] ?>" onclick="return confirm('Yakin ingin menghapus data')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+					<a href="?page=add-dataguru&get=hapus&id=<?php echo $row['nuptk'] ?>" onclick="return confirm('Yakin ingin menghapus data')" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 			    </td>
             </tr>
 <?php

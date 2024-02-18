@@ -51,7 +51,7 @@ $db = $config->getConnection();
 			  <ul class="dropdown-menu">
 				<li><a href="?page=dataguru">Data Guru</a></li>
 				<li><a href="?page=nilai">Data Nilai</a></li>
-				<li><a href="user.php">Data Bobot</a></li>
+				<li><a href="?page=bobot">Data Bobot</a></li>
 				<li><a href="user.php">Data User</a></li>
 			  </ul>
 

@@ -1,22 +1,20 @@
 <?php
-include_once 'lib/nilai.inc.php';
-$eks = new Nilai($db);
+include_once 'lib/bobotnilai.inc.php';
+$eks = new Bobot($db);
 ?>
 <?php
 $get = $_GET['get'];
 if (empty($get)) {
 if($_POST){
-	$eks->nuptk = $_POST['nuptk'];
-	$eks->nama = $_POST['nama'];
-	$eks->absen = $_POST['absen'];
-	$eks->komptensi = $_POST['komptensi'];
-	$eks->pendidikan = $_POST['pendidikan'];
-	$eks->kinerja = $_POST['kinerja'];
+	$eks->b_absen= $_POST['nuptk'];
+	$eks->b_kompeten = $_POST['nama'];
+	$eks->b_pendidikan = $_POST['absen'];
+	$eks->b_kinerja = $_POST['komptensi'];
 	if($eks->insert()){
 ?>
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Berhasil Tambah Data!</strong> Tambah lagi atau <a style="color: #fff;" href="?page=nilai">lihat semua data</a>.
+  <strong>Berhasil Tambah Data!</strong> Tambah lagi atau <a style="color: #fff;" href="?page=bobot">lihat semua data</a>.
 </div>
 <?php
 	}
@@ -75,7 +73,7 @@ if($_POST){
 		  <?php
 }elseif ($get == "edit") {
 	$id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
-	$eks->nuptk = $id;
+	$eks->idbobot = $id;
 	$eks->readOne();
 ?>
 <div class="container">
@@ -87,29 +85,21 @@ if($_POST){
 			</div>
 			<form method="post">
                 <div class="form-group">
-				    <label for="kt">NUPTK</label>
-					<input type="number" class="form-control" readonly value="<?php echo $eks->nuptk; ?>" name="nuptk" id="nuptk"  >
+				    <label for="kt">Bobot Absensi</label>
+					<input type="number" class="form-control" readonly value="<?php echo $eks->b_absen; ?>" name="nuptk" id="nuptk"  >
 
 				  </div>
 				  <div class="form-group">
 				    <label for="kt">Nama Guru</label>
-				    <input type="text" class="form-control" value="<?php echo $eks->nama; ?>" id="nama" name="nama" required>
+				    <input type="text" class="form-control" value="<?php echo $eks->b_kompeten; ?>" id="nama" name="nama" required>
 				  </div>
                   <div class="form-group">
 				    <label for="kt">Absensi</label>
-				    <input type="text" class="form-control" value="<?php echo $eks->absen; ?>" id="absen" name="absen" required>
+				    <input type="text" class="form-control" value="<?php echo $eks->b_pendidikan; ?>" id="absen" name="absen" required>
 				  </div>
                   <div class="form-group">
 				    <label for="kt">Kompetensi</label>
-				    <input type="text" class="form-control" value="<?php echo $eks->komptensi; ?>" id="komptensi" name="komptensi" required>
-				  </div>
-                  <div class="form-group">
-				    <label for="kt">Pendidikan</label>
-				    <input type="text" class="form-control" value="<?php echo $eks->pendidikan; ?>" id="pendidikan" name="pendidikan" required>
-				  </div>
-                  <div class="form-group">
-				    <label for="kt">Kinerja</label>
-				    <input type="text" class="form-control" id="kinerja" value="<?php echo $eks->kinerja; ?>" name="kinerja" required>
+				    <input type="text" class="form-control" value="<?php echo $eks->b_kinerja; ?>" id="komptensi" name="komptensi" required>
 				  </div>
 				  <button type="submit" class="btn btn-primary">Update</button>
 				  <button type="button" onclick="location.href='?page=nilai'" class="btn btn-success">Kembali</button>
@@ -122,12 +112,10 @@ if($_POST){
 <?php
 if($_POST){
 
-	$eks->nuptk = $_POST['nuptk'];
-	$eks->nama = $_POST['nama'];
-	$eks->absen = $_POST['absen'];
-	$eks->komptensi = $_POST['komptensi'];
-	$eks->pendidikan = $_POST['pendidikan'];
-	$eks->kinerja = $_POST['kinerja'];
+	$eks->b_absen = $_POST['nuptk'];
+	$eks->b_kompeten = $_POST['nama'];
+	$eks->b_pendidikan = $_POST['absen'];
+	$eks->b_kinerja = $_POST['komptensi'];
 
 	if($eks->update()){
 		echo "<script>location.href='?page=nilai'</script>";
