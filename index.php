@@ -33,6 +33,9 @@ if(isset($page)){
     if($page=='bobot'){
         include"moduls/bobotnilai.php";
     }
+    if($page=='addbobot'){
+        include"moduls/addbobot.php";
+    }
 
 }else{
     include"moduls/default.php";
